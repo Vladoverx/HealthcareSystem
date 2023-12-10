@@ -20,7 +20,6 @@ namespace DAL.Entities
         }
 
         public int ScheduleId { get; set; }
-        public int DoctorId { get; set; }
         public required Day ScheduleDay { get; set; }
         public required DateTime ScheduleTimeFrom { get; set; }
         public required DateTime ScheduleTimeTo { get; set; }
