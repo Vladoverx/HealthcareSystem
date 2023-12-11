@@ -8,6 +8,7 @@ using Moq;
 using Microsoft.EntityFrameworkCore;
 using DAL.EF;
 using DAL.Entities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DAL.Tests
 {
@@ -21,6 +22,7 @@ namespace DAL.Tests
             var mockContext = new Mock<HospitalContext>(opt);
             var mockDbSet = new Mock<DbSet<Doctor>>();
             mockContext.Setup(context => context.Set<Doctor>()).Returns(mockDbSet.Object);
+
             var repository = new TestDoctorRepository(mockContext.Object);
             Doctor expectedDoctor = new Mock<Doctor>().Object;
 
@@ -57,6 +59,29 @@ namespace DAL.Tests
                                    ), Times.Once());
             Assert.Equal(expectedDoctor, actualDoctor);
         }
-        
+
+        [Fact]
+        public void Delete_InputId_CalledFindAndRemoveMethodsOfDBSetWithCorrectArg()
+        {
+            // Arrange
+            DbContextOptions opt = new DbContextOptionsBuilder<HospitalContext>().Options;
+            var mockContext = new Mock<HospitalContext>(opt);
+            var mockDbSet = new Mock<DbSet<Doctor>>();
+            mockContext.Setup(context => context.Set<Doctor>()).Returns(mockDbSet.Object);
+
+            var expectedDoctor = new Doctor { DoctorId = 1 };
+            mockDbSet.Setup(mock => mock.Find(expectedDoctor.DoctorId)).Returns(expectedDoctor);
+            Doctor removedDoctor = null;
+            mockDbSet.Setup(mock => mock.Remove(It.IsAny<Doctor>())).Callback<Doctor>(d => removedDoctor = d);
+            var repository = new TestDoctorRepository(mockContext.Object);
+
+            // Act
+            repository.Delete(expectedDoctor.DoctorId);
+
+            // Assert
+            mockDbSet.Verify(dbSet => dbSet.Find(expectedDoctor.DoctorId), Times.Once());
+            mockDbSet.Verify(dbSet => dbSet.Remove(It.IsAny<Doctor>()), Times.Once());
+            Assert.Equal(expectedDoctor, removedDoctor);
+        }
     }
 }
