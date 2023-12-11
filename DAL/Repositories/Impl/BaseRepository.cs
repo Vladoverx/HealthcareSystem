@@ -30,7 +30,6 @@ namespace DAL.Repositories.Impl
             var item = Get(id);
             _set.Remove(item);
         }
-
         public T Get(int id)
         {
             return _set.Find(id);

@@ -17,9 +17,9 @@ namespace DAL.Entities
         }
 
         public int AppointmentId { get; set; }
-        public required Doctor Doctor { get; set; }
-        public required Patient Patient { get; set; }
-        public required DateTime AppointmentDate { get; set; }
-        public required State AppointmentState { get; set; }
+        public Doctor Doctor { get; set; }
+        public Patient Patient { get; set; }
+        public DateTime AppointmentDate { get; set; }
+        public State AppointmentState { get; set; }
     }
 }

@@ -20,9 +20,9 @@ namespace DAL.Entities
         }
 
         public int ScheduleId { get; set; }
-        public required Day ScheduleDay { get; set; }
-        public required DateTime ScheduleTimeFrom { get; set; }
-        public required DateTime ScheduleTimeTo { get; set; }
-        public required int Room { get; set; }
+        public Day ScheduleDay { get; set; }
+        public DateTime ScheduleTimeFrom { get; set; }
+        public DateTime ScheduleTimeTo { get; set; }
+        public int Room { get; set; }
     }
 }

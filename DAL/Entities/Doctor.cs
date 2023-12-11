@@ -9,13 +9,13 @@ namespace DAL.Entities
     public class Doctor
     {
         public int DoctorId { get; set; }
-        public required Schedule Schedule { get; set; }
-        public required string FullName { get; set; }
+        public Schedule Schedule { get; set; }
+        public string FullName { get; set; }
         public DateOnly BirthDate { get; set; }
-        public required string Address { get; set; }
-        public required string Email { get; set; }
-        public required string Password { get; set; }
-        public required string Specialization { get; set; }
-        public required string Experience { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Specialization { get; set; }
+        public string Experience { get; set; }
     }
 }
