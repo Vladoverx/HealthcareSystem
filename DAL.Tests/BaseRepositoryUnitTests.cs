@@ -71,17 +71,20 @@ namespace DAL.Tests
 
             var expectedDoctor = new Doctor { DoctorId = 1 };
             mockDbSet.Setup(mock => mock.Find(expectedDoctor.DoctorId)).Returns(expectedDoctor);
-            Doctor removedDoctor = null;
-            mockDbSet.Setup(mock => mock.Remove(It.IsAny<Doctor>())).Callback<Doctor>(d => removedDoctor = d);
             var repository = new TestDoctorRepository(mockContext.Object);
 
             // Act
             repository.Delete(expectedDoctor.DoctorId);
 
             // Assert
-            mockDbSet.Verify(dbSet => dbSet.Find(expectedDoctor.DoctorId), Times.Once());
-            mockDbSet.Verify(dbSet => dbSet.Remove(It.IsAny<Doctor>()), Times.Once());
-            Assert.Equal(expectedDoctor, removedDoctor);
+            mockDbSet.Verify(
+                dbSet => dbSet.Find(
+                    expectedDoctor.DoctorId
+                    ), Times.Once());
+            mockDbSet.Verify(
+                dbSet => dbSet.Remove(
+                    expectedDoctor
+                    ), Times.Once());
         }
     }
 }
