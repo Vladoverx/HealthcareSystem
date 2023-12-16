@@ -1,21 +1,15 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DAL.Entities.Appointment;
 
-namespace DAL.Entities
+namespace BLL.DTO
 {
-    public class Appointment
+    public class AppointmentDTO
     {
-        public enum AppointmentState
-        {
-            Scheduled,
-            CarriedOut,
-            Canceled,
-            Finished
-        }
-
         public int AppointmentId { get; set; }
         public Doctor Doctor { get; set; }
         public Patient Patient { get; set; }

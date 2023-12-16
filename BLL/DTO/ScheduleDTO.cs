@@ -3,22 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DAL.Entities.Schedule;
 
-namespace DAL.Entities
+namespace BLL.DTO
 {
-    public class Schedule
+    public class ScheduleDTO
     {
-        public enum ScheduleDay
-        {
-            Monday,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday,
-            Sunday
-        }
-
         public int ScheduleId { get; set; }
         public ScheduleDay CurrentScheduleDay { get; set; }
         public DateTime ScheduleTimeFrom { get; set; }
