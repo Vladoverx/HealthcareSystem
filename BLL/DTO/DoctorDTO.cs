@@ -16,6 +16,6 @@ namespace BLL.DTO
         public string Address { get; set; }
         public string Email { get; set; }
         public string Specialization { get; set; }
-        public string Experience { get; set; }
+        public int Experience { get; set; }
     }
 }

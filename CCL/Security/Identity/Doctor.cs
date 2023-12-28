@@ -8,8 +8,8 @@ namespace CCL.Security.Identity
 {
     public class Doctor : User
     {
-        public Doctor(int userId, string fullName, string email, string address, DateOnly dateOfBirth, string userType)
-            : base(userId, fullName, email, address, dateOfBirth, nameof(Doctor))
+        public Doctor(int userId, string fullName)
+            : base(userId, fullName, nameof(Doctor))
         {
         }
     }

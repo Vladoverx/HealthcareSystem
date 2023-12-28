@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCL.Security.Identity;
 
 namespace DAL.Entities
 {
@@ -17,8 +18,8 @@ namespace DAL.Entities
         }
 
         public int AppointmentId { get; set; }
-        public Doctor Doctor { get; set; }
-        public Patient Patient { get; set; }
+        public User Doctor { get; set; }
+        public User Patient { get; set; }
         public DateTime AppointmentDate { get; set; }
         public AppointmentState CurrentAppointmentState { get; set; }
     }

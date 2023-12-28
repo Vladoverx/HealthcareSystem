@@ -8,8 +8,8 @@ namespace CCL.Security.Identity
 {
     public class Admin : User
     {
-        public Admin(int userId, string fullName, string email, string address, DateOnly dateOfBirth, string userType)
-            : base(userId, fullName, email, address, dateOfBirth, nameof(Admin))
+        public Admin(int userId, string fullName)
+            : base(userId, fullName, nameof(Admin))
         {
         }
     }
