@@ -17,8 +17,7 @@ namespace CCL.Security.Identity
         public int UserId { get; }
         public string FullName { get; }
         public string Email { get; }
-        public string Address { get; }
-        public DateOnly DateOfBirth { get; }
+        public string Password { get; }
         protected string UserType { get; }
     }
 }
