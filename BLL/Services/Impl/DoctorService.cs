@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Entities;
-using Doctor = CCL.Security.Identity.Doctor;
+using Doctor = DAL.Entities.Doctor;
 
 namespace BLL.Services.Impl
 {
@@ -40,7 +40,7 @@ namespace BLL.Services.Impl
             var doctorsDTO =
                 mapper
                     .Map<IEnumerable<Doctor>, List<DoctorDTO>>(
-                    (IEnumerable<Doctor>)doctorsEntitites);
+                    doctorsEntitites);
             return doctorsDTO;
         }
     }

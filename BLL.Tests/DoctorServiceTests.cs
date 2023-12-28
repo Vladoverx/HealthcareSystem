@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using BLL.Services.Interfaces;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
+using Doctor = DAL.Entities.Doctor;
 
 namespace BLL.Tests;
 
