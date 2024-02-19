@@ -1,6 +1,3 @@
 # HealthcareSystem
-Implemented design patterns: 
-Repository
-UnitOfWork
-DataTransferObject
+Implemented design patterns: Repository, UnitOfWork DataTransferObject
 
